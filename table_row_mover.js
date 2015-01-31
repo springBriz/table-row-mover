@@ -1,11 +1,25 @@
 /**
  * table row mover - jQuery Plugin
+ *
+ * @author springBriz <apribriz@gmail.com>
  */
-define([
-    "jquery"
-], function ($) {
-    "use strict";
 
+(function(factory) {
+    'use strict';
+
+    // CommonJS module
+    if (typeof exports === 'object') {
+        factory(require('jquery'));
+    }
+    // AMD module
+    else if (typeof define === 'function' && define.amd) {
+        define(['jquery'], factory);
+    }
+    // Global
+    else {
+        factory(window.jQuery);
+    }
+}(function($) {
     // direction constant variable
     var DIR = {
         UP: 1,
@@ -14,20 +28,21 @@ define([
 
     /**
      * @param {String} rowTagName 'tr' or 'tbody'
-     * @param {String} rowClassSelector default '.movable-table-row'
      * @param {Object} selectors
+     * @param {Function} completeCallback
      * @returns jQuery Object
      */
     $.fn.tableRowMover = function() {
         var $table = $(this),
             rowTagName = (typeof arguments[0] === 'string' && arguments[0].toLowerCase() === 'tbody') ? 'tbody' : 'tr',
-            rowClassSelector = arguments[1] || '.movable-table-row',
             selectors = $.extend({
+                row: '.movable-table-row',
                 moveTop: '.move-top',
                 moveUp: '.move-up',
                 moveDown: '.move-down',
                 moveBottom: '.move-bottom'
-            }, arguments[2] || {});
+            }, arguments[1] || {}),
+            completeCallback = arguments[2];
 
         if ($table.css('position') === 'static') {
             $table.css('position', 'relative');
@@ -38,7 +53,7 @@ define([
                 toEnd = e.data && e.data.toEnd || false;
 
             var $btn = $(this),
-                $row = $btn.parents(rowTagName + rowClassSelector),
+                $row = $btn.parents(rowTagName + selectors.row),
                 $rowPosition = $row.position(),
                 $placeholder = $row.clone().removeClass();
 
@@ -48,7 +63,7 @@ define([
             // check
             if (direction === DIR.UP) {
                 // first or second row
-                var prevRowsLen = $row.prevAll(rowClassSelector).length;
+                var prevRowsLen = $row.prevAll(selectors.row).length;
                 if (prevRowsLen < 1) {
                     return false;
                 }
@@ -58,7 +73,7 @@ define([
             }
             else {
                 // last row
-                if ($row.nextAll(rowClassSelector).length < 1) {
+                if ($row.nextAll(selectors.row).length < 1) {
                     return false;
                 }
             }
@@ -103,19 +118,19 @@ define([
             // move DOM
             if (direction === DIR.UP) {
                 if (toEnd === true) {
-                    $row.prevAll(rowClassSelector).last().before($row);
+                    $row.prevAll(selectors.row).last().before($row);
                     $theadThs.css({ borderBottomWidth: (theadThBorderBottomWidth - 1) + 'px' })
                 }
                 else {
-                    $row.prev(rowClassSelector).before($row);
+                    $row.prev(selectors.row).before($row);
                 }
             }
             else {
                 if (toEnd === true) {
-                    $row.nextAll(rowClassSelector).last().after($row);
+                    $row.nextAll(selectors.row).last().after($row);
                 }
                 else {
-                    $row.next(rowClassSelector).after($row);
+                    $row.next(selectors.row).after($row);
                 }
             }
 
@@ -123,22 +138,22 @@ define([
             $row.animate({
                 top: (direction === DIR.UP ?
                     (
-                        '-=' + (toEnd === true ? (function() {
-                            var h = 0;
-                            $placeholder.prev(rowClassSelector).prevAll(rowClassSelector).each(function() {
-                                h += $(this).height();
-                            });
-                            return h;
-                        })() : $placeholder.prev(rowClassSelector).height())
+                    '-=' + (toEnd === true ? (function() {
+                        var h = 0;
+                        $placeholder.prev(selectors.row).prevAll(selectors.row).each(function() {
+                            h += $(this).height();
+                        });
+                        return h;
+                    })() : $placeholder.prev(selectors.row).height())
                     ) : (
-                        '+=' + (toEnd === true ? (function() {
-                            var h = 0;
-                            $placeholder.next(rowClassSelector).nextAll(rowClassSelector).each(function() {
-                                h += $(this).height();
-                            });
-                            return h;
-                        })() : $placeholder.next(rowClassSelector).height())
-                    )
+                '+=' + (toEnd === true ? (function() {
+                    var h = 0;
+                    $placeholder.next(selectors.row).nextAll(selectors.row).each(function() {
+                        h += $(this).height();
+                    });
+                    return h;
+                })() : $placeholder.next(selectors.row).height())
+                )
                 )
 
             }, 'fast', 'swing', function() {
@@ -154,6 +169,11 @@ define([
 
                 // remove placeholder
                 $placeholder.remove();
+
+                // complete callback
+                if (typeof completeCallback === 'function') {
+                    completeCallback();
+                }
             });
         }
 
@@ -166,4 +186,4 @@ define([
 
         return $table;
     };
-});
+}));
