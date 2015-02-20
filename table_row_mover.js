@@ -57,9 +57,6 @@
                 $rowPosition = $row.position(),
                 $placeholder = $row.clone().removeClass();
 
-            var $theadThs,
-                theadThBorderBottomWidth;
-
             // check
             if (direction === DIR.UP) {
                 // first or second row
@@ -80,12 +77,6 @@
 
             // remove tooltip, etc.
             $btn.trigger('mouseout');
-
-            // for fixing 1px height bug
-            if (direction === DIR.UP && toEnd === true) {
-                $theadThs = $table.find('thead th');
-                theadThBorderBottomWidth = parseInt($theadThs.css('border-bottom-width'), 10);
-            }
 
             // set placeholder height
             if (rowTagName === 'tr') {
@@ -108,52 +99,31 @@
             });
 
             // insert placeholder
-            if (direction === DIR.UP) {
-                $row.after($placeholder);
-            }
-            else {
-                $row.before($placeholder);
-            }
+            $row.after($placeholder);
 
-            // move DOM
-            if (direction === DIR.UP) {
-                if (toEnd === true) {
-                    $row.prevAll(selectors.row).last().before($row);
-                    $theadThs.css({ borderBottomWidth: (theadThBorderBottomWidth - 1) + 'px' })
-                }
-                else {
-                    $row.prev(selectors.row).before($row);
-                }
-            }
-            else {
-                if (toEnd === true) {
-                    $row.nextAll(selectors.row).last().after($row);
-                }
-                else {
-                    $row.next(selectors.row).after($row);
-                }
-            }
+            // move row to bottom
+            $row.nextAll(selectors.row).last().after($row);
 
             // animate moving
             $row.animate({
                 top: (direction === DIR.UP ?
                     (
-                    '-=' + (toEnd === true ? (function() {
-                        var h = 0;
-                        $placeholder.prev(selectors.row).prevAll(selectors.row).each(function() {
-                            h += $(this).height();
-                        });
-                        return h;
-                    })() : $placeholder.prev(selectors.row).height())
+                        '-=' + (toEnd === true ? (function() {
+                            var h = 0;
+                            $placeholder.prev(selectors.row).prevAll(selectors.row).each(function() {
+                                h += $(this).height();
+                            });
+                            return h;
+                        })() : $placeholder.prev(selectors.row).height())
                     ) : (
-                '+=' + (toEnd === true ? (function() {
-                    var h = 0;
-                    $placeholder.next(selectors.row).nextAll(selectors.row).each(function() {
-                        h += $(this).height();
-                    });
-                    return h;
-                })() : $placeholder.next(selectors.row).height())
-                )
+                        '+=' + (toEnd === true ? (function() {
+                            var h = 0;
+                            $placeholder.next(selectors.row).nextAll(selectors.row).each(function() {
+                                h += $(this).height();
+                            });
+                            return h;
+                        })() : $placeholder.next(selectors.row).height())
+                    )
                 )
 
             }, 'fast', 'swing', function() {
@@ -163,8 +133,22 @@
                     left: ''
                 });
 
-                if (direction === DIR.UP && toEnd === true) {
-                    $theadThs.css({ borderBottomWidth: theadThBorderBottomWidth + 'px' });
+                // move row
+                if (direction === DIR.UP) {
+                    if (toEnd === true) {
+                        $placeholder.prevAll(selectors.row).last().before($row);
+                    }
+                    else {
+                        $placeholder.prev(selectors.row).before($row);
+                    }
+                }
+                else {
+                    if (toEnd === true) {
+                        $placeholder.nextAll(selectors.row).last().after($row);
+                    }
+                    else {
+                        $placeholder.next(selectors.row).after($row);
+                    }
                 }
 
                 // remove placeholder

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+        <!--<link rel="stylesheet" href="css/main.css">-->
+        <style type="text/css">
+            .movable-table-row {
+                background-color: #ffffff;
+            }
+        </style>
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <h2>table row mover</h2>
+
+            <table id="sample-table-tbody" class="table">
+                <thead>
+                <tr class="active">
+                    <th class="col-md-2">MOVE</th>
+                    <th class="col-md-10">CONTENT</th>
+                </tr>
+                </thead>
+
+                <tbody class="movable-table-row">
+                <tr>
+                    <td rowspan="2">
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</td>
+                </tr>
+                <tr>
+                    <td>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                </tr>
+                </tbody>
+
+                <tbody class="movable-table-row">
+                <tr>
+                    <td rowspan="2">
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Ut enim ad minim veniam,</td>
+                </tr>
+                <tr>
+                    <td>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+                </tr>
+                </tbody>
+
+                <tbody class="movable-table-row">
+                <tr>
+                    <td rowspan="2">
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Duis aute irure dolor in reprehenderit in voluptate</td>
+                </tr>
+                <tr>
+                    <td>velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                </tr>
+                </tbody>
+
+                <tbody class="movable-table-row">
+                <tr>
+                    <td rowspan="2">
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Excepteur sint occaecat cupidatat non proident,</td>
+                </tr>
+                <tr>
+                    <td>sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+                </tr>
+                </tbody>
+
+                <tbody class="movable-table-row">
+                <tr>
+                    <td rowspan="2">
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>hey</td>
+                </tr>
+                <tr>
+                    <td>there</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table id="sample-table-tr" class="table">
+                <thead>
+                <tr class="active">
+                    <th class="col-md-2">MOVE</th>
+                    <th class="col-md-10">CONTENT</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Ut enim ad minim veniam,</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Duis aute irure dolor in reprehenderit in voluptate</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>Excepteur sint occaecat cupidatat non proident,</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>hey</td>
+                </tr>
+                <tr class="movable-table-row">
+                    <td>
+                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="첫 줄로 이동">&#10514;</button>
+                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 위로 이동">&uarr;</button>
+                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="한 줄 아래로 이동">&darr;</button>
+                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="마지막 줄로 이동">&#10515;</button>
+                    </td>
+                    <td>there</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <!--<script src="js/main.js"></script>-->
+
+        <script src="../../table_row_mover.js"></script>
+        <script>
+            (function($) {
+                $(document).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip({
+                        container: 'body',
+                        animation: false
+                    });
+
+                    $('#sample-table-tbody').tableRowMover('tbody');
+                    $('#sample-table-tr').tableRowMover();
+                });
+            })(jQuery);
+        </script>
+    </body>
+</html>
