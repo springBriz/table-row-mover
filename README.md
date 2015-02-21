@@ -16,11 +16,11 @@ $('#sample-table').tableRowMover({
 ### first parameter - options
 | Option | Type | Default | Description |
 | ------ | ---- | ------- | ----------- |
-| rowTagName | string | 'tr' | 'tr' or 'tbody' |
-| selectors | object | <ul><li>row: '.movable-table-row'</li><li>moveTop: '.move-top'</li><li>moveUp: '.move-up'</li><li>moveDown: '.move-down'</li><li>moveBottom: '.move-bottom'</li></ul> |  |
-| animate | boolean | true | |
-| animateDuration | string or integer | 'fast' | |
-| animateEasing | string | 'swing' | |
+| rowTagName | String | 'tr' | 'tr' or 'tbody' |
+| selectors | Object | <ul><li>row: '.movable-table-row'</li><li>moveTop: '.move-top'</li><li>moveUp: '.move-up'</li><li>moveDown: '.move-down'</li><li>moveBottom: '.move-bottom'</li></ul> |  |
+| animate | Boolean | true | |
+| animateDuration | Number or String | 'fast' | same as jQuery .animate() 'duration' option |
+| animateEasing | String | 'swing' | same as jQuery .animate() 'easing' option |
 
 ### second parameter - complete callback
 | Type | Arguments | Description |
