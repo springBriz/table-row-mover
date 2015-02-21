@@ -5,8 +5,6 @@
  */
 
 (function(factory) {
-    'use strict';
-
     // CommonJS module
     if (typeof exports === 'object') {
         factory(require('jquery'));
@@ -20,6 +18,8 @@
         factory(window.jQuery);
     }
 }(function($) {
+    'use strict';
+
     // direction constant variable
     var DIR = {
         UP: 1,
@@ -27,59 +27,84 @@
     };
 
     /**
-     * @param {String} rowTagName 'tr' or 'tbody'
-     * @param {Object} selectors
-     * @param {Function} completeCallback
+     * @param {Object}
+     * @param {Function}
      * @returns jQuery Object
      */
     $.fn.tableRowMover = function() {
+        var settings = $.extend({
+            rowTagName: 'tr',
+            selectors: {},
+            animate: true,
+            animateDuration: 'fast',
+            animateEasing: 'swing'
+        }, arguments[0] || {});
+
+        var selectors = $.extend({
+            row: '.movable-table-row', // must be a class selector
+            moveTop: '.move-top',
+            moveUp: '.move-up',
+            moveDown: '.move-down',
+            moveBottom: '.move-bottom'
+        }, settings.selectors);
+
         var $table = $(this),
-            rowTagName = (typeof arguments[0] === 'string' && arguments[0].toLowerCase() === 'tbody') ? 'tbody' : 'tr',
-            selectors = $.extend({
-                row: '.movable-table-row',
-                moveTop: '.move-top',
-                moveUp: '.move-up',
-                moveDown: '.move-down',
-                moveBottom: '.move-bottom'
-            }, arguments[1] || {}),
-            completeCallback = arguments[2];
+            completeCallback = arguments[1];
 
         if ($table.css('position') === 'static') {
             $table.css('position', 'relative');
         }
 
         function moveRow(e) {
-            var direction = e.data && e.data.direction || DIR.UP,
-                toEnd = e.data && e.data.toEnd || false;
+            e.preventDefault();
 
             var $btn = $(this),
-                $row = $btn.parents(rowTagName + selectors.row),
-                $rowPosition = $row.position(),
-                $placeholder = $row.clone().removeClass();
+                $row = $btn.parents(settings.rowTagName + selectors.row),
+                direction = e.data && e.data.direction || DIR.UP,
+                toEnd = e.data && e.data.toEnd || false;
 
-            // check
-            if (direction === DIR.UP) {
-                // first or second row
-                var prevRowsLen = $row.prevAll(selectors.row).length;
-                if (prevRowsLen < 1) {
-                    return false;
-                }
-                else if (prevRowsLen === 1) {
-                    toEnd = true;
-                }
-            }
-            else {
-                // last row
-                if ($row.nextAll(selectors.row).length < 1) {
-                    return false;
-                }
+            // first or last row
+            if ((direction === DIR.UP && $row.prevAll(selectors.row).length < 1)
+                || (direction === DIR.DOWN && $row.nextAll(selectors.row).length < 1)) {
+                return false;
             }
 
             // remove tooltip, etc.
             $btn.trigger('mouseout');
 
+            // turn off animation
+            if (settings.animate === false) {
+                if (direction === DIR.UP) {
+                    if (toEnd === true) {
+                        $row.prevAll(selectors.row).last().before($row);
+                    }
+                    else {
+                        $row.prev(selectors.row).before($row);
+                    }
+                }
+                else {
+                    if (toEnd === true) {
+                        $row.nextAll(selectors.row).last().after($row);
+                    }
+                    else {
+                        $row.next(selectors.row).after($row);
+                    }
+                }
+
+                // complete callback
+                if (typeof completeCallback === 'function') {
+                    completeCallback.call($table, $row);
+                }
+
+                // done
+                return;
+            }
+
+            // create placeholder
+            var $placeholder = $row.clone().removeClass().addClass(selectors.row.replace(/^\./, ''));
+
             // set placeholder height
-            if (rowTagName === 'tr') {
+            if (settings.rowTagName === 'tr') {
                 $placeholder.height($row.height()).find('td').html('').removeClass();
             }
             else {
@@ -88,10 +113,13 @@
                 });
             }
 
-            // ready to move
+            // set row width
             $row.find('td').each(function() {
                 $(this).width($(this).width());
             });
+
+            // set row position
+            var $rowPosition = $row.position();
             $row.css({
                 position: 'absolute',
                 top: $rowPosition.top,
@@ -101,32 +129,32 @@
             // insert placeholder
             $row.after($placeholder);
 
-            // move row to bottom
+            // move row to the bottom
             $row.nextAll(selectors.row).last().after($row);
 
             // animate moving
             $row.animate({
-                top: (direction === DIR.UP ?
-                    (
-                        '-=' + (toEnd === true ? (function() {
-                            var h = 0;
-                            $placeholder.prev(selectors.row).prevAll(selectors.row).each(function() {
-                                h += $(this).height();
-                            });
-                            return h;
-                        })() : $placeholder.prev(selectors.row).height())
-                    ) : (
-                        '+=' + (toEnd === true ? (function() {
-                            var h = 0;
-                            $placeholder.next(selectors.row).nextAll(selectors.row).each(function() {
-                                h += $(this).height();
-                            });
-                            return h;
-                        })() : $placeholder.next(selectors.row).height())
-                    )
+                top: direction === DIR.UP ? (
+                    '-=' + (toEnd === true ? (function() {
+                        var h = 0;
+                        $placeholder.prevAll(selectors.row).each(function() {
+                            h += $(this).height();
+                        });
+                        return h;
+                    })() : $placeholder.prev(selectors.row).height())
+                ) : (
+                    '+=' + (toEnd === true ? (function() {
+                        var h = 0;
+                        $placeholder.nextAll(selectors.row).each(function() {
+                            if ($(this)[0] === $row[0]) {
+                                return;
+                            }
+                            h += $(this).height();
+                        });
+                        return h;
+                    })() : $placeholder.next(selectors.row).height())
                 )
-
-            }, 'fast', 'swing', function() {
+            }, settings.animateDuration, settings.animateEasing, function() {
                 $row.css({
                     position: '',
                     top: '',
@@ -156,7 +184,7 @@
 
                 // complete callback
                 if (typeof completeCallback === 'function') {
-                    completeCallback();
+                    completeCallback.call($table, $row);
                 }
             });
         }
