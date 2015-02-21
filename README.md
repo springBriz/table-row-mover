@@ -2,4 +2,4 @@
 
 not yet completed...
 
-DEMO : http://springbriz.github.io/row-mover/demo/initializr_bootstrap/
+DEMO : http://springbriz.github.io/table-row-mover/demo/initializr_bootstrap/
