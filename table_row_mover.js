@@ -27,8 +27,8 @@
     };
 
     /**
-     * @param {Object}
-     * @param {Function}
+     * @param {Object} options
+     * @param {Function} complete callback
      * @returns jQuery Object
      */
     $.fn.tableRowMover = function() {
