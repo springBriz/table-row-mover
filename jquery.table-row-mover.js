@@ -145,10 +145,7 @@
                 ) : (
                     '+=' + (toEnd === true ? (function() {
                         var h = 0;
-                        $placeholder.nextAll(selectors.row).each(function() {
-                            if ($(this)[0] === $row[0]) {
-                                return;
-                            }
+                        $placeholder.nextAll(selectors.row + ':not(:last)').each(function() {
                             h += $(this).height();
                         });
                         return h;
