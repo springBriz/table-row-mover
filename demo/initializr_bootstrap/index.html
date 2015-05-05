@@ -17,6 +17,34 @@
             .movable-table-row {
                 background-color: #ffffff;
             }
+            .move-icons {
+                box-sizing: content-box;
+                width: 16px;
+                height: 16px;
+                padding: 0;
+                background-repeat: no-repeat;
+                background-image: url(../images/move-icons.png);
+            }
+            .move-icons.move-top {
+                background-position: 0 0;
+            }
+            .move-icons.move-up{
+                background-position: -16px 0;
+            }
+            .move-icons.move-down {
+                background-position: -32px 0;
+            }
+            .move-icons.move-bottom {
+                background-position: -48px 0;
+            }
+            @media
+            (-webkit-min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi) {
+                .move-icons {
+                    background-image: url(../images/move-icons@2x.png);
+                    background-size: 64px 16px;
+                }
+            }
         </style>
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -40,10 +68,10 @@
                 <tbody class="movable-table-row">
                 <tr>
                     <td rowspan="2">
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</td>
                 </tr>
@@ -55,10 +83,10 @@
                 <tbody class="movable-table-row">
                 <tr>
                     <td rowspan="2">
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Ut enim ad minim veniam,</td>
                 </tr>
@@ -70,10 +98,10 @@
                 <tbody class="movable-table-row">
                 <tr>
                     <td rowspan="2">
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Duis aute irure dolor in reprehenderit in voluptate</td>
                 </tr>
@@ -85,10 +113,10 @@
                 <tbody class="movable-table-row">
                 <tr>
                     <td rowspan="2">
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Excepteur sint occaecat cupidatat non proident,</td>
                 </tr>
@@ -100,10 +128,10 @@
                 <tbody class="movable-table-row">
                 <tr>
                     <td rowspan="2">
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>hey</td>
                 </tr>
@@ -124,91 +152,91 @@
                 <tbody>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Ut enim ad minim veniam,</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Duis aute irure dolor in reprehenderit in voluptate</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>velit esse cillum dolore eu fugiat nulla pariatur.</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>Excepteur sint occaecat cupidatat non proident,</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>hey</td>
                 </tr>
                 <tr class="movable-table-row">
                     <td>
-                        <button class="move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&#10514;</button>
-                        <button class="move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&uarr;</button>
-                        <button class="move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&darr;</button>
-                        <button class="move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&#10515;</button>
+                        <button class="move-icons move-top btn btn-default btn-xs" data-toggle="tooltip" title="move to top">&nbsp;</button>
+                        <button class="move-icons move-up btn btn-default btn-xs" data-toggle="tooltip" title="move up">&nbsp;</button>
+                        <button class="move-icons move-down btn btn-default btn-xs" data-toggle="tooltip" title="move down">&nbsp;</button>
+                        <button class="move-icons move-bottom btn btn-default btn-xs" data-toggle="tooltip" title="move to bottom">&nbsp;</button>
                     </td>
                     <td>there</td>
                 </tr>
